@@ -253,6 +253,116 @@ public class Main {
         System.out.println("Visų trijų skaičių aritmetinis vidurkis: " + vidurkisVisuApvalintas);
         System.out.println("Vidurkis be skaičių mažesnių nei 10 arba didesnių nei 90: " + vidurkisBeKrastutiniuApvalintas);
 
+        System.out.println("===================PAPILDOMA uzd9 ======================");
+        //9.Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes.
+        // Valandom, minutėm ir sekundėm sugeneruoti panaudokite funkciją Math.random().
+        // Sugeneruokite skaičių nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko.
+        // Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių.
+
+        System.out.println("1 variantas");
+
+        int valandos = (int) (Math.random() * 24);
+        int minutes = (int) (Math.random() * 60);
+        int sekundes = (int) (Math.random() * 60);
+
+        // Laiko formatavimas
+        String laikasPries = String.format("%02d:%02d:%02d", valandos, minutes, sekundes);
+
+        // Papildomos sekundės
+        int papildomosSekundes = (int) (Math.random() * 300);
+
+        // Laiko atnaujinimas
+        sekundes += papildomosSekundes;
+        if (sekundes >= 60) {
+            sekundes -= 60;
+            minutes++;
+        }
+        if (minutes >= 60) {
+            minutes -= 60;
+            valandos++;
+        }
+
+        // Laiko formatavimas
+        String laikasPo = String.format("%02d:%02d:%02d", valandos, minutes, sekundes);
+
+        System.out.println("Laikas prieš pridedant sekundžių: " + laikasPries);
+        System.out.println("Papildomos sekundės: " + papildomosSekundes);
+        System.out.println("Laikas po pridedant sekundžių: " + laikasPo);
+
+        System.out.println("2 variantas");
+
+        int min1 = 0;
+        int max1 = 59;
+        int valandos1 = (int) (min1 + Math.round(Math.random() * (max1 - min1)));
+        int minutes1 = (int) (min1 + Math.round(Math.random() * (max1 - min1)));
+        int sekundes1 = (int) (min1 + Math.round(Math.random() * (max1 - min1)));
+
+        String valandos0 = String.format("%02d", valandos);
+        String minutes0 = String.format("%02d", minutes);
+        String sekundes0 = String.format("%02d", sekundes);
+
+        System.out.println("Random time: " + valandos0 + ":" + minutes0 + ":" + sekundes0);
+
+        //Generuoti papildomas sekundes
+        int min2 = 0;
+        int max2 = 300;
+        int pSekundes = (int) (min2 + Math.round(Math.random() * (max2 - min2)));
+        //Sekundes/minutes/valandos pridejus papildomas sekundes pSekundes
+        int sekundes2 = (sekundes1 + pSekundes) % 60;
+        int minutes2 = (minutes1 + ((sekundes1 + pSekundes) / 60)) % 60;
+        int valandos2 = (valandos1 + ((minutes1 + ((sekundes1 + pSekundes) / 60)) / 60)) % 24;
+        //Laikas pridejus papildomas sekundes
+        String valandos02 = String.format("%02d", valandos2);
+        String minutes02 = String.format("%02d", minutes2);
+        String sekundes02 = String.format("%02d", sekundes2);
+
+        System.out.println("Time after: " + pSekundes + " seconds: " + valandos02 + ":" + minutes02 + ":" + sekundes02);
+
+        System.out.println("===================PAPILDOMA uzd10 ======================");
+        //10.Naudokite funkcija Math.random(). Sugeneruokite 6 kintamuosius su atsitiktinem reikšmėm nuo 1000 iki 9999.
+        // Atspausdinkite reikšmes viename strige, išrūšiuotas nuo didžiausios iki mažiausios, atskirtas tarpais.
+        // Naudoti ciklų ir masyvų NEGALIMA.
+
+        int skaiciusR1 = (int) (Math.random() * 9000) + 1000;
+        int skaiciusR2 = (int) (Math.random() * 9000) + 1000;
+        int skaiciusR3 = (int) (Math.random() * 9000) + 1000;
+        int skaiciusR4 = (int) (Math.random() * 9000) + 1000;
+        int skaiciusR5 = (int) (Math.random() * 9000) + 1000;
+        int skaiciusR6 = (int) (Math.random() * 9000) + 1000;
+
+        // Palyginimas ir sukeitimas
+        if (skaiciusR1 < skaiciusR2) {
+            int temp = skaiciusR1;
+            skaiciusR1 = skaiciusR2;
+            skaiciusR2 = temp;
+        }
+        if (skaiciusR2 < skaiciusR3) {
+            int temp = skaiciusR2;
+            skaiciusR2 = skaiciusR3;
+            skaiciusR3 = temp;
+        }
+        if (skaiciusR3 < skaiciusR4) {
+            int temp = skaiciusR3;
+            skaiciusR3 = skaiciusR4;
+            skaiciusR4 = temp;
+        }
+        if (skaiciusR4 < skaiciusR5) {
+            int temp = skaiciusR4;
+            skaiciusR4 = skaiciusR5;
+            skaiciusR5 = temp;
+        }
+        if (skaiciusR5 < skaiciusR6) {
+            int temp = skaiciusR5;
+            skaiciusR5 = skaiciusR6;
+            skaiciusR6 = temp;
+        }
+
+        System.out.println(skaiciusR6 + " " + skaiciusR5 + " " + skaiciusR4 + " " + skaiciusR3 + " " + skaiciusR2 + " " + skaiciusR1);
+    }
+
+
+
+
         // git config --global user.name "kolibris111"
         // git config --global user.email "palubinskaitrasele1@gmail.com"
 
@@ -277,8 +387,7 @@ public class Main {
 
 
 
-    }
-    }
+}
 
 
 
